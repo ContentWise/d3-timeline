@@ -338,9 +338,17 @@ d3.timeline()
 
 Default is timeline-xAxis, but can be used to set any class.
 
-### .axisZoom
+### .allowZoom(zoomSetting)
 
 Default is true. Takes a boolean.  If set to false, does not allow zooming
+
+### .maxZoom(zoomRatio)
+
+Default is 5. Takes a number to change the maximum zoom ratio
+
+### .minZoom(zoomRatio)
+
+Default is 1. Takes a number to change the minimum zoom ratio
 
 ### .mouseover(callback)
 

@@ -42,6 +42,7 @@ var timelines = function() {
 				ending = 0,
 				margin = {left: 30, right:30, top: 30, bottom:30},
 				maxZoom = 5,
+				minZoom = 1,
 				stacked = false,
 				rotateTicks = false,
 				timeIsRelative = false,
@@ -498,24 +499,15 @@ var timelines = function() {
 			};
 
 			var zoom = d3z()
-				.scaleExtent([0, maxZoom]) // max zoom defaults to 5
+			.scaleExtent([
+				allowZoom ? minZoom : 1, 
+				allowZoom ? maxZoom : 1]) // max zoom defaults to 5
 				.translateExtent([[0, 0], [width, 0]]) // [x0, y0], [x1, y1] don't allow translating y-axis
 				.on("zoom", move);
 
 			gParent
 				.classed("scrollable", true)
 				.call(zoom);
-
-			if (! allowZoom) {
-				g.on("wheel", function() {
-					event.preventDefault();
-					event.stopImmediatePropagation();
-				});
-				g.on("dblclick.zoom", function() {
-					event.preventDefault();
-					event.stopImmediatePropagation();
-				});
-			}
 
 			if (rotateTicks) {
 				g.selectAll(".tick text")
@@ -708,6 +700,12 @@ var timelines = function() {
 		timelines.maxZoom = function (max) {
 			if (!arguments.length) return maxZoom;
 			maxZoom = max;
+			return timelines;
+		};
+
+		timelines.minZoom = function (min) {
+			if (!arguments.length) return minZoom;
+			minZoom = min;
 			return timelines;
 		};
 
