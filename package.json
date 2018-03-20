@@ -8,7 +8,7 @@
     "d3-timelines"
   ],
   "license": "BSD-3-Clause",
-  "main": "build/d3-timelines.js",
+  "main": "dist/d3-timelines.js",
   "jsnext:main": "index",
   "homepage": "https://github.com/denisemauldin/d3-timeline",
   "repository": {
