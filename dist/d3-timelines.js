@@ -5,7 +5,7 @@
 }(this, function (exports,d3Axis,d3Array,d3TimeFormat,d3Time,d3Scale,d3Selection,d3Zoom) { 'use strict';
 
 	var timelines = function() {
-			var DISPLAY_TYPES = ["circle", "rect"];
+			var DISPLAY_TYPES = ["circle", "rect", "ellipse"];
 
 			var hover = function () {},
 					mouseover = function () {},
@@ -336,11 +336,21 @@
 							.attr("width", function (d, i) {
 								return (d.ending_time - d.starting_time) * scaleFactor;
 							})
+							//circle and ellipse center
 							.attr("cy", function(d, i) {
 									return getStackPosition(d, i) + itemHeight/2;
 							})
 							.attr("cx", getXPos)
+							//circle radius
 							.attr("r", itemHeight / 2)
+							//ellipse x radius
+							.attr("rx",function (d, i) {
+								return  itemHeight / 4;
+							})
+							//ellipse y radius
+							.attr("ry",function(d, i) {
+								return  itemHeight / 2;
+							})
 							.attr("height", itemHeight)
 							.style("fill", function(d, i){
 								var dColorPropName;

@@ -159,9 +159,9 @@ sets the margin between the data series in the timeline. Defaults to 5px.
 
 sets the margin of the entire timeline inside of the svg. Defaults to 30px all around.
 
-### .display("circle" | "rect")
+### .display("circle" | "rect" | "ellipse")
 
-Displays the data series as either circles or rectangles. Defaults to "rect".
+Displays the data series as either circles, rectangles or ellipses. Defaults to "rect".
 
 ### .labelFormat(callback)
 
