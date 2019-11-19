@@ -31,7 +31,7 @@
 					allowZoom = true,
 					axisBgColor = "white",
 					chartData = {},
-					colorCycle = d3Scale.scaleOrdinal(d3Scale.schemeCategory20),
+					colorCycle = d3Scale.scaleOrdinal(d3Scale.schemeCategory10),
 					colorPropertyName = null,
 					display = "rect",
 					beginning = 0,
